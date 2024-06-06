@@ -1,11 +1,21 @@
--- EXAMPLE
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 require("java").setup()
-local util = require "lspconfig.util"
 local servers = {
+  -- tsserver = {
+  --   init_options = {
+  --     plugins = {
+  --       {
+  --         name = "@vue/typescript-plugin",
+  --         location = vue_language_server_path,
+  --         languages = { "vue" },
+  --       },
+  --     },
+  --   },
+  --   -- filetypes = { "vue" },
+  -- },
   html = {},
   jdtls = {},
   lua_ls = {
@@ -31,26 +41,13 @@ local servers = {
   cssls = {},
   tailwindcss = {},
   jedi_language_server = {},
-  -- rust_analyzer = {
-  --   root_dir = util.root_pattern "Cargo.toml",
-  --   settings = {
-  --     ["rust_analyzer"] = {
-  --       cargo = {
-  --         allFeatures = true,
-  --       },
-  --     },
-  --   },
-  -- },
   jsonls = {},
   volar = {
-    filetypes = {
-      "typescript",
-      "vue",
-    },
-    root_dir = util.root_pattern "src/App.vue",
+    -- filetypes = {
+    --   "vue",
+    -- },
   },
   sqlls = {},
-  vls = {},
   taplo = {},
   pyright = {
     settings = {

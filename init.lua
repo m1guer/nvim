@@ -1,6 +1,5 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
-
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -41,7 +40,7 @@ end)
 require "defualts.ensure"
 vim.opt.listchars:append { eol = "↲" }
 vim.wo.relativenumber = true
-vim.o.guifont = "Zed Mono"
+vim.o.guifont = "Zed Mono:h12"
 
 require "configs.dadbod"
 require("precognition").toggle()
@@ -52,3 +51,13 @@ require "options"
 require "configs.lspconfig"
 require "configs.harpoon"
 require "ts-comments"
+-- require "configs.colorhighlight"
+vim.opt.termguicolors = true
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client.name == "tailwindcss" then
+      vim.cmd "TailwindConcealEnable"
+    end
+  end,
+})

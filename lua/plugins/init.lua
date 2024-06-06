@@ -1,5 +1,8 @@
 return {
   {
+    "brenoprata10/nvim-highlight-colors",
+  },
+  {
     "mrcjkb/rustaceanvim",
     version = "^4", -- Recommended
     lazy = false, -- This plugin is already lazy

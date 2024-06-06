@@ -3,7 +3,6 @@
 
 ---@type ChadrcConfig
 local M = {}
-
 M.ui = {
   statusline = {
     theme = "vscode_colored",
@@ -55,7 +54,7 @@ M.ui = {
   },
   hl_add = {
     -- NvimTreeNormalFloat = { link = "Float" },
-    YankVisual = { link = "CursorColumn" },
+    -- YankVisual = { link = "CursorColumn" },
     LspInfoBorder = { fg = "#444c5b" },
     WinBar = { bg = "NONE" },
     WinBarNC = { bg = "NONE" },
