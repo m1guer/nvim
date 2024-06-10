@@ -61,3 +61,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
   end,
 })
+local autocmd = vim.api.nvim_create_autocmd
+
+-- enable inlay hints
+autocmd("LspAttach", {
+  callback = function(args)
+    vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+  end,
+})
