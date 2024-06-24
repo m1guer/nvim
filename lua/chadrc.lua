@@ -44,7 +44,7 @@ M.ui = {
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
   },
   lsp = { signature = true, hints = true },
-  theme = "rosepine",
+  theme = "gruvbox",
   hl_override = {
     LspInlayHint = { fg = "#4e5665", bg = "NONE" },
     FloatBorder = { link = "TelescopeBorder" },

@@ -1,21 +1,40 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
+require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
 
+-- If the lsp setup is taken over by other plugin, it is the same to call the counterpart setup function
+require("lspconfig").vtsls.setup { --[[ your custom server config here ]]
+}
 require("java").setup()
 local servers = {
-  -- tsserver = {
-  --   init_options = {
-  --     plugins = {
-  --       {
-  --         name = "@vue/typescript-plugin",
-  --         location = vue_language_server_path,
-  --         languages = { "vue" },
-  --       },
-  --     },
-  --   },
-  --   -- filetypes = { "vue" },
-  -- },
+  vtsls = {
+    settings = {
+
+      complete_function_calls = true,
+      vtsls = {
+        enableMoveToFileCodeAction = true,
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+      },
+      typescript = {
+        updateImportsOnFileMove = { enabled = "always" },
+        suggest = { completeFunctionCalls = true },
+        inlayHints = {
+          enumMemberValues = { enabled = true },
+          functionLikeReturnTypes = { enabled = true },
+          parameterNames = { enabled = "literals" },
+          parameterTypes = { enabled = true },
+          propertyDeclarationTypes = { enabled = true },
+          variableTypes = { enabled = false },
+        },
+      },
+    },
+  },
   html = {},
   jdtls = {},
   lua_ls = {

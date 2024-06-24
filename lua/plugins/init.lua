@@ -1,4 +1,11 @@
 return {
+  -- lazy.nvim
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    lazy = false,
+    opts = { useDefaultKeymaps = true },
+  },
+  { "yioneko/nvim-vtsls" },
   {
     "brenoprata10/nvim-highlight-colors",
   },
@@ -129,23 +136,23 @@ return {
       require "configs.conform"
     end,
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    config = function()
-      require("typescript-tools").setup {
-        settings = {
-          tsserver_file_preferences = {
-            includeInlayParameterNameHints = "all",
-            includeCompletionsForModuleExports = true,
-            quotePreference = "auto",
-          },
-        },
-      }
-    end,
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-    lazy = false,
-  },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   config = function()
+  --     require("typescript-tools").setup {
+  --       settings = {
+  --         tsserver_file_preferences = {
+  --           includeInlayParameterNameHints = "all",
+  --           includeCompletionsForModuleExports = true,
+  --           quotePreference = "auto",
+  --         },
+  --       },
+  --     }
+  --   end,
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {},
+  --   lazy = false,
+  -- },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
